@@ -3173,13 +3173,13 @@ void webkitWebViewBaseSynthesizeMouseEvent(WebKitWebViewBase* webViewBase, Mouse
     case 0:
         webEventButton = WebMouseEventButton::None;
         break;
-    case 1:
+    case GDK_BUTTON_PRIMARY:
         webEventButton = WebMouseEventButton::Left;
         break;
-    case 2:
+    case GDK_BUTTON_MIDDLE:
         webEventButton = WebMouseEventButton::Middle;
         break;
-    case 3:
+    case GDK_BUTTON_SECONDARY:
         webEventButton = WebMouseEventButton::Right;
         break;
     }
