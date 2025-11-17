@@ -33,6 +33,7 @@
 #include "Yarr.h"
 #include "YarrFlags.h"
 #include "YarrInterpreter.h"
+#include <JavaScriptCore/InspectorProtocolObjects.h>
 #include <wtf/BumpPointerAllocator.h>
 #include <wtf/StdLibExtras.h>
 #include <wtf/text/MakeString.h>
