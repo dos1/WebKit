@@ -2383,6 +2383,7 @@ bool WebChromeClient::usePluginRendererScrollableArea(LocalFrame& frame) const
     return true;
 }
 
+#if ENABLE(VIDEO)
 void WebChromeClient::showCaptionDisplaySettings(CompletionHandler<void(bool)>&& callback)
 {
     RefPtr page = m_page.get();
@@ -2393,5 +2394,6 @@ void WebChromeClient::showCaptionDisplaySettings(CompletionHandler<void(bool)>&&
 
     page->sendWithAsyncReply(Messages::WebPageProxy::ShowCaptionDisplaySettings(), WTFMove(callback));
 }
+#endif
 
 } // namespace WebKit
