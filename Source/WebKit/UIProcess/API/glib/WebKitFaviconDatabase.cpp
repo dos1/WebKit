@@ -199,7 +199,9 @@ void webkitFaviconDatabaseGetFaviconInternal(WebKitFaviconDatabase* database, co
             }
             const auto& icon = icons.last();
 #if USE(CAIRO)
-            g_task_return_pointer(task.get(), icon.leakRef(), reinterpret_cast<GDestroyNotify>(cairo_surface_destroy));
+            auto* surface = const_cast<cairo_surface_t*>(icon.get());
+            cairo_surface_reference(surface);
+            g_task_return_pointer(task.get(), surface, reinterpret_cast<GDestroyNotify>(cairo_surface_destroy));
 #elif USE(SKIA)
             g_task_return_pointer(task.get(), SkRef(icon.get()), [](gpointer data) {
                 static_cast<SkImage*>(data)->unref();
